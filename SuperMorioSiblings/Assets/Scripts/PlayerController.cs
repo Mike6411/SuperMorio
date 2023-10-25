@@ -1,15 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
     private Vector2 myinput;
-    private CharacterController characterController;
     private Vector3 mydirection;
+    private CharacterController characterController;
+    private float grav = -9.81f;
+    private float verticalVelocity;
+    private float currentVelocity;
+
+    [SerializeField] private float smoothTime = 0.05f;
 
     [SerializeField] private float speed;
+
+    [SerializeField] private float gravMod;
 
     private void Awake()
     {
@@ -17,6 +25,33 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Update()
+    {
+        ApplyGravity();
+        ApplyRotation();
+        ApplyMovement();
+    }
+
+    private void ApplyGravity()
+    {
+        if (characterController.isGrounded && verticalVelocity < 0f)
+        {
+            verticalVelocity = -1.0f;
+        }
+        else
+        {
+            verticalVelocity += grav * gravMod * Time.deltaTime;        
+        }
+        mydirection.y = verticalVelocity;
+    }
+
+    private void ApplyRotation()
+    {
+        float targetAngle = Mathf.Atan2(mydirection.x, mydirection.z) * Mathf.Rad2Deg;
+        float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref currentVelocity, smoothTime);
+        transform.rotation = Quaternion.Euler(0, angle, 0);
+    }
+
+    private void ApplyMovement()
     {
         characterController.Move(mydirection * speed * Time.deltaTime);
     }
