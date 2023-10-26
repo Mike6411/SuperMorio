@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float gravMod;
 
+    [SerializeField] private float jumpPower;
+
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
@@ -33,7 +35,7 @@ public class PlayerController : MonoBehaviour
 
     private void ApplyGravity()
     {
-        if (characterController.isGrounded && verticalVelocity < 0f)
+        if (isGrounded() && verticalVelocity < 0f)
         {
             verticalVelocity = -1.0f;
         }
@@ -62,4 +64,14 @@ public class PlayerController : MonoBehaviour
         mydirection = new Vector3(myinput.x, 0.0f, myinput.y);
         Debug.Log(myinput);
     }
+
+    public void Jump(InputAction.CallbackContext context)
+    {
+        if (!context.started) {return;}
+        if (!isGrounded()) {return;}
+
+        verticalVelocity += jumpPower;
+    }
+
+    private bool isGrounded() => characterController.isGrounded;
 }

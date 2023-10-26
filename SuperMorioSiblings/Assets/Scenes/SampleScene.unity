@@ -508,6 +508,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 745209364}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &798737687 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3040608672847271950, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
+  m_PrefabInstance: {fileID: 3040608672369827097}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c01410568e9289c4996058377e4719bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1123,6 +1134,54 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3040608672847271937, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3040608672847271937, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_ActionId
+      value: 6f49489a-956b-4490-9bb6-df5f6c999c46
+      objectReference: {fileID: 0}
+    - target: {fileID: 3040608672847271937, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_ActionId
+      value: 85ca82cb-4570-43e6-8c49-029741d099cc
+      objectReference: {fileID: 0}
+    - target: {fileID: 3040608672847271937, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_ActionName
+      value: Gameplay/Jump[/Keyboard/space]
+      objectReference: {fileID: 0}
+    - target: {fileID: 3040608672847271937, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_ActionName
+      value: Gameplay/Crouch[/Keyboard/ctrl]
+      objectReference: {fileID: 0}
+    - target: {fileID: 3040608672847271937, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3040608672847271937, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3040608672847271937, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 798737687}
+    - target: {fileID: 3040608672847271937, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3040608672847271937, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 3040608672847271937, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3040608672847271937, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3040608672847271941, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1166,6 +1225,14 @@ PrefabInstance:
     - target: {fileID: 3040608672847271941, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3040608672847271950, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
+      propertyPath: gravMod
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3040608672847271950, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
+      propertyPath: jumpPower
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3040608672847271951, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
       propertyPath: m_Name
