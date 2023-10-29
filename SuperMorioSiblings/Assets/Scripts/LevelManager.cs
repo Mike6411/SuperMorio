@@ -10,7 +10,7 @@ public class LevelManager : MonoBehaviour
 
     private void Update()
     {
-        if (points >= 10)
+        if (points >= 5)
         {
             restartLevel();
         }

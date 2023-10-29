@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private int jumpchain = 0;
     private float OGjumpPower;
     private float OGtargetTime;
+    private Animator myAnimator;
 
 
     [SerializeField] private float rotationSpeed = 50f;
@@ -34,6 +35,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
+        myAnimator = GetComponent<Animator>();
         myCamera = Camera.main;
         OGjumpPower = jumpPower;
         OGtargetTime = targetTime;
@@ -92,6 +94,15 @@ public class PlayerController : MonoBehaviour
     {
         myinput = context.ReadValue<Vector2>();
         mydirection = new Vector3(myinput.x, 0.0f, myinput.y);
+
+        if (context.started)
+        {
+            myAnimator.SetBool("isWalking", true);
+        }
+        else
+        {
+            myAnimator.SetBool("isWalking", false);
+        }
     }
 
     public void Jump(InputAction.CallbackContext context)
