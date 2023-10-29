@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Windows;
 
+[RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
     private Vector2 myinput;
@@ -11,9 +14,9 @@ public class PlayerController : MonoBehaviour
     private CharacterController characterController;
     private float grav = -9.81f;
     private float verticalVelocity;
-    private float currentVelocity;
+    private Camera myCamera;
 
-    [SerializeField] private float smoothTime = 0.05f;
+    [SerializeField] private float rotationSpeed = 50f;
 
     [SerializeField] private float speed;
 
@@ -24,12 +27,13 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
+        myCamera = Camera.main;
     }
 
     private void Update()
-    {
-        ApplyGravity();
+    {        
         ApplyRotation();
+        ApplyGravity();
         ApplyMovement();
     }
 
@@ -48,9 +52,13 @@ public class PlayerController : MonoBehaviour
 
     private void ApplyRotation()
     {
-        float targetAngle = Mathf.Atan2(mydirection.x, mydirection.z) * Mathf.Rad2Deg;
-        float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref currentVelocity, smoothTime);
-        transform.rotation = Quaternion.Euler(0, angle, 0);
+        if (myinput.sqrMagnitude == 0) return;
+
+        mydirection = Quaternion.Euler(0.0f, myCamera.transform.eulerAngles.y, 0.0f) * new Vector3(myinput.x, 0.0f, myinput.y);
+
+        var targetRotation = Quaternion.LookRotation(mydirection, Vector3.up);
+
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 
     private void ApplyMovement()
@@ -62,15 +70,13 @@ public class PlayerController : MonoBehaviour
     {
         myinput = context.ReadValue<Vector2>();
         mydirection = new Vector3(myinput.x, 0.0f, myinput.y);
-        Debug.Log(myinput);
+        //Debug.Log(myinput);
     }
 
     public void Jump(InputAction.CallbackContext context)
     {
         if (!context.started) {return;}
-        if (!isGrounded()) {return;}
-
-        verticalVelocity += jumpPower;
+        if (isGrounded()) { verticalVelocity += jumpPower; }
     }
 
     private bool isGrounded() => characterController.isGrounded;
