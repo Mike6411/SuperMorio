@@ -97,11 +97,11 @@ public class PlayerController : MonoBehaviour
 
         if (context.started)
         {
-            myAnimator.SetBool("isWalking", true);
+            myAnimator.SetBool("IsWalking", true);
         }
         else
         {
-            myAnimator.SetBool("isWalking", false);
+            myAnimator.SetBool("IsWalking", false);
         }
     }
 
