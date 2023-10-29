@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private float OGjumpPower;
     private float OGtargetTime;
 
+
     [SerializeField] private float rotationSpeed = 50f;
 
     [SerializeField] private float speed;
@@ -28,6 +29,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpPower;
 
     [SerializeField] private float targetTime;
+
+    [SerializeField] private Movement movement;
+
 
     private void Awake()
     {
@@ -53,8 +57,6 @@ public class PlayerController : MonoBehaviour
             timerEnded();
         }
     }
-
-
 
     private void ApplyGravity()
     {
@@ -107,18 +109,21 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    public void Start()
+    {
+        
+    }
+
     public void Crouch(InputAction.CallbackContext context)
     {
         if (context.started)
         {
             transform.localScale = new Vector3(1, 0.5f, 1);
-            Debug.Log("Started crouching");
         }
 
         if (context.canceled)
         {
             transform.localScale = new Vector3(1, 1, 1);
-            Debug.Log("Finished crouching");
         }
     }
 
@@ -130,4 +135,11 @@ public class PlayerController : MonoBehaviour
     }
 
     private bool isGrounded() => characterController.isGrounded;
+}
+
+[Serializable]
+
+public struct Movement
+{
+    [HideInInspector] public bool isSprinting;
 }
