@@ -15,6 +15,9 @@ public class PlayerController : MonoBehaviour
     private float grav = -9.81f;
     private float verticalVelocity;
     private Camera myCamera;
+    private int jumpchain = 0;
+    private float OGjumpPower;
+    private float OGtargetTime;
 
     [SerializeField] private float rotationSpeed = 50f;
 
@@ -24,10 +27,14 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float jumpPower;
 
+    [SerializeField] private float targetTime;
+
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
         myCamera = Camera.main;
+        OGjumpPower = jumpPower;
+        OGtargetTime = targetTime;
     }
 
     private void Update()
@@ -35,7 +42,19 @@ public class PlayerController : MonoBehaviour
         ApplyRotation();
         ApplyGravity();
         ApplyMovement();
+
+        if (targetTime >= -1) 
+        {
+            targetTime -= Time.deltaTime;
+        }
+        
+        if (targetTime < 0)
+        {
+            timerEnded();
+        }
     }
+
+
 
     private void ApplyGravity()
     {
@@ -70,13 +89,44 @@ public class PlayerController : MonoBehaviour
     {
         myinput = context.ReadValue<Vector2>();
         mydirection = new Vector3(myinput.x, 0.0f, myinput.y);
-        //Debug.Log(myinput);
     }
 
     public void Jump(InputAction.CallbackContext context)
     {
         if (!context.started) {return;}
-        if (isGrounded()) { verticalVelocity += jumpPower; }
+        else if (isGrounded()) 
+        {
+            if (jumpchain < 3 && targetTime != 0)
+            {
+                jumpPower += 2;
+                jumpchain++;
+            }
+            verticalVelocity += jumpPower;
+            targetTime = OGtargetTime;
+        }
+        
+    }
+
+    public void Crouch(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            transform.localScale = new Vector3(1, 0.5f, 1);
+            Debug.Log("Started crouching");
+        }
+
+        if (context.canceled)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+            Debug.Log("Finished crouching");
+        }
+    }
+
+    private void timerEnded()
+    {
+        targetTime = OGtargetTime;
+        jumpPower = OGjumpPower;
+        jumpchain = 0;
     }
 
     private bool isGrounded() => characterController.isGrounded;
