@@ -22,8 +22,6 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float rotationSpeed = 50f;
 
-    [SerializeField] private float speed;
-
     [SerializeField] private float gravMod;
 
     [SerializeField] private float jumpPower;
@@ -84,7 +82,10 @@ public class PlayerController : MonoBehaviour
 
     private void ApplyMovement()
     {
-        characterController.Move(mydirection * speed * Time.deltaTime);
+        float targetSpeed = movement.isSprinting ? movement.speed * movement.multiplier : movement.speed;
+        movement.currentSpeed = Mathf.MoveTowards(movement.currentSpeed, targetSpeed, movement.acceleration * Time.deltaTime);
+
+        characterController.Move(mydirection * movement.currentSpeed * Time.deltaTime);
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -109,9 +110,9 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    public void Start()
+    public void Sprint(InputAction.CallbackContext context)
     {
-        
+        movement.isSprinting = context.started || context.performed;
     }
 
     public void Crouch(InputAction.CallbackContext context)
@@ -141,5 +142,10 @@ public class PlayerController : MonoBehaviour
 
 public struct Movement
 {
+    public float speed;
+    public float multiplier;
+    public float acceleration;
+
     [HideInInspector] public bool isSprinting;
+    [HideInInspector] public float currentSpeed;
 }
