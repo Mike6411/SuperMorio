@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     private float OGjumpPower;
     private float OGtargetTime;
     private Animator myAnimator;
+    private bool grounded;
+    private float groundedCheckDistance;
 
 
     [SerializeField] private float rotationSpeed = 50f;
@@ -31,6 +33,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private Movement movement;
 
+    [SerializeField] private float groundedbuffer = 0.1f;
+
 
     private void Awake()
     {
@@ -39,6 +43,7 @@ public class PlayerController : MonoBehaviour
         myCamera = Camera.main;
         OGjumpPower = jumpPower;
         OGtargetTime = targetTime;
+        grounded = true;
     }
 
     private void Update()
@@ -56,11 +61,13 @@ public class PlayerController : MonoBehaviour
         {
             timerEnded();
         }
+
+        groundedCheckDistance = (GetComponent<CapsuleCollider>().height /2) + groundedbuffer;
     }
 
     private void ApplyGravity()
     {
-        if (isGrounded() && verticalVelocity < 0f)
+        if (grounded && verticalVelocity < 0f)
         {
             verticalVelocity = -1.0f;
         }
@@ -97,32 +104,38 @@ public class PlayerController : MonoBehaviour
 
         if (context.started)
         {
-            Debug.Log("walking");
             myAnimator.SetBool("IsWalking", true);
         }        
         else if (context.canceled)
         {
-            Debug.Log("not walking");
             myAnimator.SetBool("IsWalking", false);
         }
     }
 
     public void Jump(InputAction.CallbackContext context)
     {
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, -transform.up, out hit, groundedCheckDistance))
+        {
+            grounded = true;
+        }
+        else
+        {
+            grounded = false;
+        }
+
         if (!context.started) {return;}
-        else if (isGrounded()) 
+        else if (grounded) 
         {
             if (jumpchain < 3 && targetTime != 0)
             {
                 jumpPower += 2;
                 jumpchain++;
             }
+            verticalVelocity = 0f;
             verticalVelocity += jumpPower;
             targetTime = OGtargetTime;
-        }
-        else if (!isGrounded())
-        {
-            Debug.Log("couldn't jump");
         }
         
     }
@@ -152,7 +165,7 @@ public class PlayerController : MonoBehaviour
         jumpchain = 0;
     }
 
-    private bool isGrounded() => characterController.isGrounded;
+    /*private bool isGrounded() => characterController.isGrounded;*/
 }
 
 [Serializable]
