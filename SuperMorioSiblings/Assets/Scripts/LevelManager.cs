@@ -14,13 +14,12 @@ public class LevelManager : MonoBehaviour
         {
             restartLevel();
         }
-        Debug.Log(points);
     }
 
     public void restartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        points= 0;
+        points = 0;
     }
 
     public void collectPoint()

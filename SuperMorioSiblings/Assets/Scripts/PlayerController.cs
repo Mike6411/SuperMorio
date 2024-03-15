@@ -97,10 +97,12 @@ public class PlayerController : MonoBehaviour
 
         if (context.started)
         {
+            Debug.Log("walking");
             myAnimator.SetBool("IsWalking", true);
-        }
-        else
+        }        
+        else if (context.canceled)
         {
+            Debug.Log("not walking");
             myAnimator.SetBool("IsWalking", false);
         }
     }
@@ -117,6 +119,10 @@ public class PlayerController : MonoBehaviour
             }
             verticalVelocity += jumpPower;
             targetTime = OGtargetTime;
+        }
+        else if (!isGrounded())
+        {
+            Debug.Log("couldn't jump");
         }
         
     }
