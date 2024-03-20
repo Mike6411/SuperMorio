@@ -148,7 +148,8 @@ public class PlayerController : MonoBehaviour
     public void Crouch(InputAction.CallbackContext context)
     {
         if (context.started)
-        {
+        { 
+            movement.currentSpeed = movement.currentSpeed * movement.crouchmultiplier;
             transform.localScale = new Vector3(1, 0.5f, 1);
         }
 
@@ -174,6 +175,7 @@ public struct Movement
 {
     public float speed;
     public float multiplier;
+    public float crouchmultiplier;
     public float acceleration;
 
     [HideInInspector] public bool isSprinting;
