@@ -2124,8 +2124,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1394474343794118164, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
+      propertyPath: movement.acceleration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1394474343794118164, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
       propertyPath: movement.crouchmultiplier
-      value: 0.6
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1394474343794118173, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
       propertyPath: m_RootOrder

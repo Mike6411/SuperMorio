@@ -92,6 +92,7 @@ public class PlayerController : MonoBehaviour
     private void ApplyMovement()
     {
         float targetSpeed = movement.isSprinting ? movement.speed * movement.multiplier : movement.speed;
+        targetSpeed = movement.isCrouching ? movement.speed * movement.crouchmultiplier : movement.speed;
         movement.currentSpeed = Mathf.MoveTowards(movement.currentSpeed, targetSpeed, movement.acceleration * Time.deltaTime);
 
         characterController.Move(mydirection * movement.currentSpeed * Time.deltaTime);
@@ -149,13 +150,14 @@ public class PlayerController : MonoBehaviour
     {
         if (context.started)
         { 
-            movement.currentSpeed = movement.currentSpeed * movement.crouchmultiplier;
             transform.localScale = new Vector3(1, 0.5f, 1);
+            movement.isCrouching = true;
         }
 
         if (context.canceled)
         {
             transform.localScale = new Vector3(1, 1, 1);
+            movement.isCrouching = false;
         }
     }
 
@@ -179,5 +181,6 @@ public struct Movement
     public float acceleration;
 
     [HideInInspector] public bool isSprinting;
+    [HideInInspector] public bool isCrouching;
     [HideInInspector] public float currentSpeed;
 }
