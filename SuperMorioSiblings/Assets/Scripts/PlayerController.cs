@@ -168,7 +168,6 @@ public class PlayerController : MonoBehaviour
         jumpchain = 0;
     }
 
-    /*private bool isGrounded() => characterController.isGrounded;*/
 }
 
 [Serializable]
