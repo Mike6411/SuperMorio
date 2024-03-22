@@ -2179,6 +2179,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PC
       objectReference: {fileID: 0}
+    - target: {fileID: 1394474345652365915, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
+      propertyPath: mouseSens.horizontal
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

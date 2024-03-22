@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Windows;
@@ -18,6 +17,7 @@ public class PlayerController : MonoBehaviour
     private int jumpchain = 0;
     private float OGjumpPower;
     private float OGtargetTime;
+    private float OGtargetAccel;
     private Animator myAnimator;
     private bool grounded;
     private float groundedCheckDistance;
@@ -41,9 +41,14 @@ public class PlayerController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         myAnimator = GetComponent<Animator>();
         myCamera = Camera.main;
+
+        //Saving important values for crossreferencing 
         OGjumpPower = jumpPower;
         OGtargetTime = targetTime;
         grounded = true;
+
+        //Saving the ideal length of the grounding raycast
+        groundedCheckDistance = (GetComponent<CapsuleCollider>().height / 2) + groundedbuffer;
     }
 
     private void Update()
@@ -52,6 +57,7 @@ public class PlayerController : MonoBehaviour
         ApplyGravity();
         ApplyMovement();
 
+        //Jump sequence buffer time handling
         if (targetTime >= -1) 
         {
             targetTime -= Time.deltaTime;
@@ -61,8 +67,6 @@ public class PlayerController : MonoBehaviour
         {
             timerEnded();
         }
-
-        groundedCheckDistance = (GetComponent<CapsuleCollider>().height /2) + groundedbuffer;
     }
 
     private void ApplyGravity()
@@ -80,8 +84,10 @@ public class PlayerController : MonoBehaviour
 
     private void ApplyRotation()
     {
+
         if (myinput.sqrMagnitude == 0) return;
 
+        //Setting the camera relative movement
         mydirection = Quaternion.Euler(0.0f, myCamera.transform.eulerAngles.y, 0.0f) * new Vector3(myinput.x, 0.0f, myinput.y);
 
         var targetRotation = Quaternion.LookRotation(mydirection, Vector3.up);
@@ -91,8 +97,11 @@ public class PlayerController : MonoBehaviour
 
     private void ApplyMovement()
     {
+        //Applying the sprinting and crouching movement speed modifiers
         float targetSpeed = movement.isSprinting ? movement.speed * movement.multiplier : movement.speed;
         targetSpeed = movement.isCrouching ? movement.speed * movement.crouchmultiplier : movement.speed;
+
+        //Applying acceleration
         movement.currentSpeed = Mathf.MoveTowards(movement.currentSpeed, targetSpeed, movement.acceleration * Time.deltaTime);
 
         characterController.Move(mydirection * movement.currentSpeed * Time.deltaTime);
@@ -103,6 +112,7 @@ public class PlayerController : MonoBehaviour
         myinput = context.ReadValue<Vector2>();
         mydirection = new Vector3(myinput.x, 0.0f, myinput.y);
 
+        //Anim checks
         if (context.started)
         {
             myAnimator.SetBool("IsWalking", true);
@@ -115,6 +125,7 @@ public class PlayerController : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
+        //Check grounded status before jumping
         RaycastHit hit;
 
         if (Physics.Raycast(transform.position, -transform.up, out hit, groundedCheckDistance))
@@ -126,6 +137,7 @@ public class PlayerController : MonoBehaviour
             grounded = false;
         }
 
+        //Jumpchain handling
         if (!context.started) {return;}
         else if (grounded) 
         {
@@ -163,6 +175,7 @@ public class PlayerController : MonoBehaviour
 
     private void timerEnded()
     {
+        //Value reset on end of jumpchain
         targetTime = OGtargetTime;
         jumpPower = OGjumpPower;
         jumpchain = 0;
@@ -170,6 +183,8 @@ public class PlayerController : MonoBehaviour
 
 }
 
+
+//Handles frequently used values for the movement of the PC all packed together for convenience of use
 [Serializable]
 
 public struct Movement

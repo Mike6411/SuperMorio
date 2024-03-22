@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Windows;
 
 public class Points : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class Points : MonoBehaviour
     [SerializeField]
     LevelManager LM;
     [SerializeField]
-    private float rotation = 70f;
+    private float rotation = 10f;
 
 
     private void Start()
@@ -16,9 +17,9 @@ public class Points : MonoBehaviour
         LM = GameObject.Find("LevelManager").GetComponent<LevelManager>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        transform.Rotate(0, 0, rotation * Time.deltaTime);
+        gameObject.transform.Rotate(0f, rotation*Time.deltaTime, 0f);
     }
 
     private void OnTriggerEnter(Collider other)

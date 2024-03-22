@@ -29,6 +29,7 @@ public class CameraScript : MonoBehaviour
 
     private void Update()
     {
+        //Applying desired sensitivity values to mouse input 
         camRot.yaw += input.x * mouseSens.horizontal * Time.deltaTime;
         camRot.pitch += input.y * mouseSens.vertical * Time.deltaTime;
         camRot.pitch = Mathf.Clamp(camRot.pitch, camAngle.min, camAngle.max);
