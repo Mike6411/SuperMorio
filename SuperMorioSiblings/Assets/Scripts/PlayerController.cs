@@ -27,8 +27,13 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float gravMod;
 
+    //Initial jump strength
     [SerializeField] private float jumpPower;
 
+    //Consecutive jump increase
+    [SerializeField] private float jumpIncrement;
+
+    //Time between jumps before jumpchain gets reset
     [SerializeField] private float targetTime;
 
     [SerializeField] private Movement movement;
@@ -104,6 +109,8 @@ public class PlayerController : MonoBehaviour
         //Applying acceleration
         movement.currentSpeed = Mathf.MoveTowards(movement.currentSpeed, targetSpeed, movement.acceleration * Time.deltaTime);
 
+        Debug.Log(movement.currentSpeed);
+
         characterController.Move(mydirection * movement.currentSpeed * Time.deltaTime);
     }
 
@@ -143,7 +150,7 @@ public class PlayerController : MonoBehaviour
         {
             if (jumpchain < 3 && targetTime != 0)
             {
-                jumpPower += 2;
+                jumpPower += jumpIncrement;
                 jumpchain++;
             }
             verticalVelocity = 0f;
