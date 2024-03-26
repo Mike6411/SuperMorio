@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Windows;
-using static UnityEditor.PlayerSettings;
 
 public class Points : MonoBehaviour
 {
@@ -18,7 +17,7 @@ public class Points : MonoBehaviour
 
     private void Start()
     {
-        pos = transform.localPosition;
+        pos = transform.position;
         LM = GameObject.Find("LevelManager").GetComponent<LevelManager>();
     }
 
