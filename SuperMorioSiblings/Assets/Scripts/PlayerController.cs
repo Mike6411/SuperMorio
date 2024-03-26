@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
     private int jumpchain = 0;
     private float OGjumpPower;
     private float OGtargetTime;
-    private float OGtargetAccel;
     private Animator myAnimator;
     private bool grounded;
     private float groundedCheckDistance;
@@ -107,9 +106,7 @@ public class PlayerController : MonoBehaviour
         targetSpeed = movement.isCrouching ? movement.speed * movement.crouchmultiplier : movement.speed;
 
         //Applying acceleration
-        movement.currentSpeed = Mathf.MoveTowards(movement.currentSpeed, targetSpeed, movement.acceleration * Time.deltaTime);
-
-        Debug.Log(movement.currentSpeed);
+        movement.currentSpeed = Mathf.MoveTowards(movement.currentSpeed, targetSpeed, movement.currentAccel * Time.deltaTime);
 
         characterController.Move(mydirection * movement.currentSpeed * Time.deltaTime);
     }
@@ -188,20 +185,31 @@ public class PlayerController : MonoBehaviour
         jumpchain = 0;
     }
 
+    private void setAcceleration()
+    {
+        
+    }
+
 }
 
 
 //Handles frequently used values for the movement of the PC all packed together for convenience of use
-[Serializable]
+//Should be private and have getters and setters 
 
-public struct Movement
+[Serializable]
+ public struct Movement
 {
+    //static values (set through inspector for convenience)
     public float speed;
     public float multiplier;
     public float crouchmultiplier;
-    public float acceleration;
+    public float accel;
+    public float decel;
 
-    [HideInInspector] public bool isSprinting;
-    [HideInInspector] public bool isCrouching;
-    [HideInInspector] public float currentSpeed;
+    //changing values
+    public bool isMoving;
+    public bool isSprinting;
+    public bool isCrouching;
+    public float currentSpeed;
+    public float currentAccel;
 }
