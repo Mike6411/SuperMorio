@@ -13,6 +13,7 @@ public class Points : MonoBehaviour
     [SerializeField]
     private float speed;
 
+    private float newY;
     private Vector3 pos;
 
     private void Start()
@@ -23,12 +24,15 @@ public class Points : MonoBehaviour
 
     void Update()
     {
-        float newY = Mathf.Sin(Time.time * speed) * height + pos.y;
+        //Updown
+        newY = Mathf.Sin(Time.time * speed) * height + pos.y;
         transform.position = new Vector3(pos.x, newY, pos.z);
 
+        //Y rotation
         transform.rotation *= Quaternion.Euler(0f, 0.1f, 0f);
     }
 
+    //When touched by player add points and autodestroy
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")

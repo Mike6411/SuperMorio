@@ -102,8 +102,18 @@ public class PlayerController : MonoBehaviour
     private void ApplyMovement()
     {
         //Applying the sprinting and crouching movement speed modifiers
-        float targetSpeed = movement.isSprinting ? movement.speed * movement.multiplier : movement.speed;
-        targetSpeed = movement.isCrouching ? movement.speed * movement.crouchmultiplier : movement.speed;
+        float targetSpeed;
+
+        if (movement.isSprinting) { targetSpeed = movement.speed * movement.sprintMultiplier; }
+        else if (movement.isCrouching) { targetSpeed = movement.speed * movement.crouchMultiplier; }
+        else { targetSpeed = movement.speed; }
+
+        /*targetSpeed = movement.isSprinting ? movement.speed * movement.sprintMultiplier : movement.speed;
+        targetSpeed = movement.isCrouching ? movement.speed * movement.crouchMultiplier : movement.speed;*/
+
+        Debug.Log(targetSpeed);
+
+        setAcceleration();
 
         //Applying acceleration
         movement.currentSpeed = Mathf.MoveTowards(movement.currentSpeed, targetSpeed, movement.currentAccel * Time.deltaTime);
@@ -116,14 +126,16 @@ public class PlayerController : MonoBehaviour
         myinput = context.ReadValue<Vector2>();
         mydirection = new Vector3(myinput.x, 0.0f, myinput.y);
 
-        //Anim checks
+        //Anim checks and bool set
         if (context.started)
         {
             myAnimator.SetBool("IsWalking", true);
+            movement.isMoving = true;
         }        
         else if (context.canceled)
         {
             myAnimator.SetBool("IsWalking", false);
+            movement.isMoving = false;
         }
     }
 
@@ -187,7 +199,21 @@ public class PlayerController : MonoBehaviour
 
     private void setAcceleration()
     {
-        
+        if (movement.isMoving) 
+        {
+            movement.currentAccel = movement.accel;
+        }
+        else if (!movement.isMoving)
+        {
+            if(movement.currentSpeed > 0)
+            {
+                movement.currentAccel = movement.decel;
+            }
+            else
+            {
+                movement.currentAccel = 0;
+            }
+        }
     }
 
 }
@@ -201,8 +227,8 @@ public class PlayerController : MonoBehaviour
 {
     //static values (set through inspector for convenience)
     public float speed;
-    public float multiplier;
-    public float crouchmultiplier;
+    public float sprintMultiplier;
+    public float crouchMultiplier;
     public float accel;
     public float decel;
 

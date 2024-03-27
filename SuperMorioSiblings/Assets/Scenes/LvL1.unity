@@ -2127,8 +2127,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1394474343794118164, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
+      propertyPath: movement.accel
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1394474343794118164, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
+      propertyPath: movement.decel
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1394474343794118164, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
       propertyPath: movement.acceleration
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1394474343794118164, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
       propertyPath: movement.crouchmultiplier
