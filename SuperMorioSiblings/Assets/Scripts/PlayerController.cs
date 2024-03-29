@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     private float OGjumpPower;
     private float OGtargetTime;
     private Animator myAnimator;
-    [SerializeField]
+    private bool jumped;
     private bool grounded;
     private float groundedCheckDistance;
 
@@ -123,15 +123,13 @@ public class PlayerController : MonoBehaviour
         myinput = context.ReadValue<Vector2>();
         mydirection = new Vector3(myinput.x, 0.0f, myinput.y);
 
-        //Anim checks and bool set
+        //Boolset
         if (context.started)
         {
-            myAnimator.SetBool("IsWalking", true);
             movement.isMoving = true;
         }        
         else if (context.canceled)
         {
-            myAnimator.SetBool("IsWalking", false);
             movement.isMoving = false;
         }
     }
@@ -151,7 +149,11 @@ public class PlayerController : MonoBehaviour
         }
 
         //Jumpchain handling
-        if (!context.started) {return;}
+        if (!context.started) 
+        {
+            jumped = false;
+            return;
+        }
         else if (grounded) 
         {
             if (jumpchain < 3 && targetTime != 0)
@@ -161,6 +163,7 @@ public class PlayerController : MonoBehaviour
             }
             verticalVelocity = 0f;
             verticalVelocity += jumpPower;
+            jumped = true;
             targetTime = OGtargetTime;
         }
         
@@ -214,6 +217,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //Getters for AnimationManager
+    internal float GetCurrentSpeed(){return this.movement.currentSpeed;}
+
+    internal bool GetJump(){return this.jumped;}
+
+    internal bool GetCrouch(){return this.movement.isCrouching;}
+
+    internal bool GetGrounded(){return this.grounded;}
+
+    internal int GetJumpchain(){return this.jumpchain;}
 }
 
 

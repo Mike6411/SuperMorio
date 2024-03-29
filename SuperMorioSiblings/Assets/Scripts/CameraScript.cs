@@ -10,7 +10,6 @@ public class CameraScript : MonoBehaviour
     [SerializeField] private Transform target;
     [SerializeField] private MouseSensitivity mouseSens;
     [SerializeField] private CameraAngle camAngle;
-    [SerializeField]private float cameraLerp = 12f;
 
     private float distanceToPlayer;
 
