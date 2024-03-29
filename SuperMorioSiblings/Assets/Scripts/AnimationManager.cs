@@ -14,7 +14,8 @@ public class AnimationManager : MonoBehaviour
 
     private void Update() 
     { 
-        animator.SetFloat("velocity", pc.GetCurrentSpeed()); 
+        animator.SetFloat("velocity", pc.GetCurrentSpeed());
+        animator.SetFloat("vertvelocity", pc.GetCurrentYSpeed());
         animator.SetBool("jumped", pc.GetJump());
         animator.SetBool("crouched", pc.GetCrouch());
         animator.SetBool("grounded", pc.GetGrounded());

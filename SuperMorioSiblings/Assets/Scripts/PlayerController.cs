@@ -12,12 +12,15 @@ public class PlayerController : MonoBehaviour
     private Vector3 mydirection;
     private CharacterController characterController;
     private float grav = -9.81f;
+    [SerializeField]
     private float verticalVelocity;
     private Camera myCamera;
-    private int jumpchain = 0;
+    [SerializeField]
+    private int jumpChain = 0;
     private float OGjumpPower;
     private float OGtargetTime;
     private bool jumped;
+    [SerializeField]
     private bool grounded;
     private float groundedCheckDistance;
 
@@ -150,23 +153,25 @@ public class PlayerController : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
+        //Bool set
+        if (context.started){jumped = true;}
+
+        if (context.canceled){jumped = false;}
 
         //Jumpchain handling
         if (!context.started) 
         {
-            jumped = false;
             return;
         }
         else if (grounded) 
         {
-            if (jumpchain < 3 && targetTime != 0)
+            if (jumpChain < 3 && targetTime != 0)
             {
                 jumpPower += jumpIncrement;
-                jumpchain++;
+                jumpChain++;
             }
             verticalVelocity = 0f;
             verticalVelocity += jumpPower;
-            jumped = true;
             targetTime = OGtargetTime;
         }
         
@@ -198,7 +203,7 @@ public class PlayerController : MonoBehaviour
         //Value reset on end of jumpchain
         targetTime = OGtargetTime;
         jumpPower = OGjumpPower;
-        jumpchain = 0;
+        jumpChain = 0;
     }
 
     private void setAcceleration()
@@ -230,7 +235,9 @@ public class PlayerController : MonoBehaviour
 
     internal bool GetGrounded(){return this.grounded;}
 
-    internal int GetJumpchain(){return this.jumpchain;}
+    internal int GetJumpchain(){return this.jumpChain;}
+
+    internal float GetCurrentYSpeed(){return this.verticalVelocity;}
 }
 
 
