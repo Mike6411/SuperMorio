@@ -2135,6 +2135,10 @@ PrefabInstance:
       value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 1394474343794118164, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
+      propertyPath: movement.speedcap
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1394474343794118164, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
       propertyPath: movement.acceleration
       value: 0.5
       objectReference: {fileID: 0}

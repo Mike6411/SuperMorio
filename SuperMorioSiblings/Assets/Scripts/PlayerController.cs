@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
     private int jumpchain = 0;
     private float OGjumpPower;
     private float OGtargetTime;
-    private Animator myAnimator;
     private bool jumped;
     private bool grounded;
     private float groundedCheckDistance;
@@ -44,7 +43,6 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
-        myAnimator = GetComponent<Animator>();
         myCamera = Camera.main;
 
         //Saving important values for crossreferencing 
@@ -74,13 +72,28 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        //Check grounded status
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, -transform.up, out hit, groundedCheckDistance))
+        {
+            grounded = true;
+        }
+        else
+        {
+            grounded = false;
+        }
+    }
+
     private void ApplyGravity()
     {
         if (grounded && verticalVelocity < 0f)
         {
             verticalVelocity = -1.0f;
         }
-        else
+        else if(verticalVelocity >= grav)
         {
             verticalVelocity += grav * gravMod * Time.deltaTime;        
         }
@@ -93,7 +106,7 @@ public class PlayerController : MonoBehaviour
         if (myinput.sqrMagnitude == 0) return;
 
         //Setting the camera relative movement
-        mydirection = Quaternion.Euler(0.0f, myCamera.transform.eulerAngles.y, 0.0f) * new Vector3(myinput.x, 0.0f, myinput.y);
+        mydirection = Quaternion.Euler(0.0f, myCamera.transform.eulerAngles.y, 0.0f) * new Vector3(myinput.x, 0f, myinput.y);
 
         var targetRotation = Quaternion.LookRotation(mydirection, Vector3.up);
 
@@ -112,16 +125,17 @@ public class PlayerController : MonoBehaviour
 
         setAcceleration();
 
-        //Applying acceleration
-        movement.currentSpeed = Mathf.MoveTowards(movement.currentSpeed, targetSpeed, movement.currentAccel * Time.deltaTime);
+        //Applying acceleration with unwated speed prevention
+        movement.currentSpeed = Mathf.MoveTowards(movement.currentSpeed, Mathf.Clamp(targetSpeed,0,movement.speedcap), movement.currentAccel * Time.deltaTime);
 
-        characterController.Move(mydirection * movement.currentSpeed * Time.deltaTime);
+        //Clamped to not stop you from falling
+        characterController.Move(mydirection * Mathf.Clamp(movement.currentSpeed,1,movement.speedcap) * Time.deltaTime);
     }
 
     public void Move(InputAction.CallbackContext context)
     {
         myinput = context.ReadValue<Vector2>();
-        mydirection = new Vector3(myinput.x, 0.0f, myinput.y);
+        mydirection = new Vector3(myinput.x, mydirection.y, myinput.y);
 
         //Boolset
         if (context.started)
@@ -136,17 +150,6 @@ public class PlayerController : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        //Check grounded status before jumping
-        RaycastHit hit;
-
-        if (Physics.Raycast(transform.position, -transform.up, out hit, groundedCheckDistance))
-        {
-            grounded = true;
-        }
-        else
-        {
-            grounded = false;
-        }
 
         //Jumpchain handling
         if (!context.started) 
@@ -207,7 +210,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (!movement.isMoving)
         {
-            if(movement.currentSpeed > 0 && grounded)
+            if(movement.currentSpeed > 0)
             {
                 movement.currentAccel = movement.decel;
             }
@@ -232,10 +235,10 @@ public class PlayerController : MonoBehaviour
 
 
 //Handles frequently used values for the movement of the PC all packed together for convenience of use
-//Should be private and have getters and setters 
+//Should be private and have getters and setters but eh 
 
 [Serializable]
- public struct Movement
+ internal struct Movement
 {
     //static values (set through inspector for convenience)
     public float speed;
@@ -243,6 +246,8 @@ public class PlayerController : MonoBehaviour
     public float crouchMultiplier;
     public float accel;
     public float decel;
+    //incase you break something and start going too quick
+    public float speedcap;
 
     //changing values
     public bool isMoving;
