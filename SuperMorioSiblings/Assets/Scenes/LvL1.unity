@@ -2132,15 +2132,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1394474343794118164, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
       propertyPath: movement.decel
-      value: -4
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 1394474343794118164, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
       propertyPath: movement.acceleration
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1394474343794118164, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
+      propertyPath: movement.crouchMultiplier
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1394474343794118164, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
       propertyPath: movement.crouchmultiplier
       value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1394474343794118164, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
+      propertyPath: movement.sprintMultiplier
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: 1394474343794118173, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
       propertyPath: m_RootOrder
@@ -2189,6 +2197,10 @@ PrefabInstance:
     - target: {fileID: 1394474343904578685, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
       propertyPath: m_Name
       value: PC
+      objectReference: {fileID: 0}
+    - target: {fileID: 1394474345652365915, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
+      propertyPath: cameraLerp
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1394474345652365915, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
       propertyPath: mouseSens.horizontal

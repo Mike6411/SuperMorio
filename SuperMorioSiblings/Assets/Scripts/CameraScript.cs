@@ -10,11 +10,14 @@ public class CameraScript : MonoBehaviour
     [SerializeField] private Transform target;
     [SerializeField] private MouseSensitivity mouseSens;
     [SerializeField] private CameraAngle camAngle;
+    [SerializeField]private float cameraLerp = 12f;
 
     private float distanceToPlayer;
 
     private Vector2 input;
     private CameraRotation camRot;
+    private RaycastHit hit;
+    private Vector3 finalPosition;
 
 
     private void Awake()
@@ -38,7 +41,13 @@ public class CameraScript : MonoBehaviour
     private void LateUpdate()
     {
         transform.eulerAngles = new Vector3(camRot.pitch, camRot.yaw, 0);
-        transform.position = target.position - transform.forward * distanceToPlayer;
+        finalPosition = target.position - transform.forward * distanceToPlayer;
+
+        if(Physics.Linecast(target.transform.position,finalPosition,out hit)){
+            finalPosition= hit.point;
+        }
+
+        transform.position = finalPosition;
     }
 
 
