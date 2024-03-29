@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private float OGjumpPower;
     private float OGtargetTime;
     private Animator myAnimator;
+    [SerializeField]
     private bool grounded;
     private float groundedCheckDistance;
 
@@ -104,14 +105,10 @@ public class PlayerController : MonoBehaviour
         //Applying the sprinting and crouching movement speed modifiers
         float targetSpeed;
 
+        //Sprint and crouch speed alterations
         if (movement.isSprinting) { targetSpeed = movement.speed * movement.sprintMultiplier; }
         else if (movement.isCrouching) { targetSpeed = movement.speed * movement.crouchMultiplier; }
         else { targetSpeed = movement.speed; }
-
-        /*targetSpeed = movement.isSprinting ? movement.speed * movement.sprintMultiplier : movement.speed;
-        targetSpeed = movement.isCrouching ? movement.speed * movement.crouchMultiplier : movement.speed;*/
-
-        Debug.Log(targetSpeed);
 
         setAcceleration();
 
@@ -199,13 +196,14 @@ public class PlayerController : MonoBehaviour
 
     private void setAcceleration()
     {
+        //If you're actively pressing a movement key you'll accelerate otherwise you'll decelerate untill you stop moving
         if (movement.isMoving) 
         {
             movement.currentAccel = movement.accel;
         }
         else if (!movement.isMoving)
         {
-            if(movement.currentSpeed > 0)
+            if(movement.currentSpeed > 0 && grounded)
             {
                 movement.currentAccel = movement.decel;
             }
