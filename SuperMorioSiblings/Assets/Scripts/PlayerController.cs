@@ -171,7 +171,8 @@ public class PlayerController : MonoBehaviour
 
     public void Sprint(InputAction.CallbackContext context)
     {
-        movement.isSprinting = context.started || context.performed;
+        //Can't sprint while crouching
+        if (!movement.isCrouching) {movement.isSprinting = context.started || context.performed;}
     }
 
     public void Crouch(InputAction.CallbackContext context)
