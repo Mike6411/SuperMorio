@@ -163,18 +163,23 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
-        else if (grounded) 
+        else if (grounded)
         {
             if (jumpChain < 3 && targetTime != 0)
             {
                 jumpPower += jumpIncrement;
                 jumpChain++;
             }
-            verticalVelocity = 0f;
-            verticalVelocity += jumpPower;
+            ApplyJump(jumpPower);
             targetTime = OGtargetTime;
         }
-        
+
+    }
+
+    private void ApplyJump(float var)
+    {
+        verticalVelocity = 0f;
+        verticalVelocity += var;
     }
 
     public void Sprint(InputAction.CallbackContext context)
