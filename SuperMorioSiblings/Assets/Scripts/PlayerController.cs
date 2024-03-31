@@ -176,7 +176,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void ApplyJump(float var)
+    internal void ApplyJump(float var)
     {
         verticalVelocity = 0f;
         verticalVelocity += var;

@@ -8,15 +8,20 @@ public class BouncepadScript : MonoBehaviour
     [SerializeField]
     PlayerController PC;
 
+    [SerializeField]
+    private float bouncePower;
+
 
     private void Start()
     {
         PC = GameObject.Find("PC").GetComponent<PlayerController>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.tag == "Player")
+        {
+            PC.ApplyJump(bouncePower);
+        }
     }
 }
