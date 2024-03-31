@@ -8,6 +8,7 @@ public class BouncepadScript : MonoBehaviour
     [SerializeField]
     PlayerController PC;
 
+    //Controls the strength with witch the player will be forced to jump with
     [SerializeField]
     private float bouncePower;
 
@@ -19,6 +20,7 @@ public class BouncepadScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //When player touches you, make them jump
         if (other.tag == "Player")
         {
             PC.ApplyJump(bouncePower);

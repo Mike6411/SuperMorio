@@ -12,21 +12,19 @@ public class PlayerController : MonoBehaviour
     private Vector3 mydirection;
     private CharacterController characterController;
     private float grav = -9.81f;
-    [SerializeField]
     private float verticalVelocity;
     private Camera myCamera;
-    [SerializeField]
     private int jumpChain = 0;
     private float OGjumpPower;
     private float OGtargetTime;
     private bool jumped;
-    [SerializeField]
     private bool grounded;
     private float groundedCheckDistance;
 
 
     [SerializeField] private float rotationSpeed = 50f;
 
+    //multiplier applied to gravity
     [SerializeField] private float gravMod;
 
     //Initial jump strength
@@ -40,6 +38,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private Movement movement;
 
+    //Bonus length for redundancy purposes
     [SerializeField] private float groundedbuffer = 0.1f;
 
 
@@ -63,7 +62,7 @@ public class PlayerController : MonoBehaviour
         ApplyGravity();
         ApplyMovement();
 
-        //Jump sequence buffer time handling
+        //Jumpchain buffer time handling
         if (targetTime >= -1) 
         {
             targetTime -= Time.deltaTime;
@@ -84,10 +83,7 @@ public class PlayerController : MonoBehaviour
         {
             grounded = true;
         }
-        else
-        {
-            grounded = false;
-        }
+        else { grounded = false; }
     }
 
     private void ApplyGravity()
@@ -140,29 +136,20 @@ public class PlayerController : MonoBehaviour
         myinput = context.ReadValue<Vector2>();
         mydirection = new Vector3(myinput.x, mydirection.y, myinput.y);
 
-        //Boolset
-        if (context.started)
-        {
-            movement.isMoving = true;
-        }        
-        else if (context.canceled)
-        {
-            movement.isMoving = false;
-        }
+        //Set bool
+        if (context.started){movement.isMoving = true;}        
+        else if (context.canceled){movement.isMoving = false;}
     }
 
     public void Jump(InputAction.CallbackContext context)
     {
-        //Bool set
+        //Set bool
         if (context.started){jumped = true;}
 
         if (context.canceled){jumped = false;}
 
         //Jumpchain handling
-        if (!context.started) 
-        {
-            return;
-        }
+        if (!context.started) {return;}
         else if (grounded)
         {
             if (jumpChain < 3 && targetTime != 0)
@@ -190,8 +177,8 @@ public class PlayerController : MonoBehaviour
 
     public void Crouch(InputAction.CallbackContext context)
     {
-        if (context.started)
-        { 
+        //Hitbox modification & set bool
+        if (context.started){ 
             transform.localScale = new Vector3(1, 0.5f, 1);
             movement.isCrouching = true;
         }
@@ -214,10 +201,8 @@ public class PlayerController : MonoBehaviour
     private void setAcceleration()
     {
         //If you're actively pressing a movement key you'll accelerate otherwise you'll decelerate untill you stop moving
-        if (movement.isMoving) 
-        {
-            movement.currentAccel = movement.accel;
-        }
+
+        if (movement.isMoving) {movement.currentAccel = movement.accel;}
         else if (!movement.isMoving)
         {
             if(movement.currentSpeed > 0)
@@ -252,7 +237,7 @@ public class PlayerController : MonoBehaviour
 [Serializable]
  internal struct Movement
 {
-    //static values (set through inspector for convenience)
+    //static values (set through Serializable for convenience)
     public float speed;
     public float sprintMultiplier;
     public float crouchMultiplier;
