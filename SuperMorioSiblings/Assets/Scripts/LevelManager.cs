@@ -8,9 +8,12 @@ public class LevelManager : MonoBehaviour
 
     private int points = 0;
 
+    [SerializeField]
+    private int wincond;
+
     private void Update()
     {
-        if (points >= 5)
+        if (points >= wincond)
         {
             restartLevel();
         }

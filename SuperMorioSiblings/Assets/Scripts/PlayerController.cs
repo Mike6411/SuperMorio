@@ -8,7 +8,9 @@ using UnityEngine.Windows;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField]
     private Vector2 myinput;
+    [SerializeField]
     private Vector3 mydirection;
     private CharacterController characterController;
     private float grav = -9.81f;
