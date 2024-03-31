@@ -21,7 +21,7 @@ public class CameraScript : MonoBehaviour
 
     private void Awake()
     {
-        distanceToPlayer = Vector3.Distance(transform.position, target.position);
+        distanceToPlayer = Vector3.Distance(transform.position, target.position) / 2;
     }
 
     public void Look(InputAction.CallbackContext context) 

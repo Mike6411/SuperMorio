@@ -512,6 +512,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spikeball (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453235, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453237, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -822,6 +834,10 @@ Transform:
   - {fileID: 535293417}
   - {fileID: 1524664865}
   - {fileID: 239599292}
+  - {fileID: 768749905}
+  - {fileID: 865918594}
+  - {fileID: 314617814}
+  - {fileID: 1405565004}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1089,6 +1105,18 @@ PrefabInstance:
     - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
       propertyPath: m_Name
       value: Spikeball (33)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453235, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453237, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1477,6 +1505,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spikeball (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453235, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453237, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1608,6 +1648,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spikeball (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453235, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453237, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1673,6 +1725,18 @@ PrefabInstance:
     - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
       propertyPath: m_Name
       value: Spikeball (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453235, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453237, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1959,7 +2023,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!108 &254793822
 Light:
@@ -2431,6 +2495,59 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: d4d6eed92fb93e948b95c2fc4d1f6f8d, type: 3}
+--- !u!1 &314617813
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 314617814}
+  - component: {fileID: 314617815}
+  m_Layer: 0
+  m_Name: InvisibleBoundry (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &314617814
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314617813}
+  m_LocalRotation: {x: -0, y: -0.9999905, z: -0, w: 0.004361072}
+  m_LocalPosition: {x: 66.6651, y: 50.98366, z: -6.339796}
+  m_LocalScale: {x: 1, y: 110.97, z: 172.13881}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 91421442}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: -179.5, z: 0}
+--- !u!65 &314617815
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314617813}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &337277959
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3729,6 +3846,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spikeball (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453235, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453237, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4398,6 +4527,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spikeball (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453235, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453237, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4458,6 +4599,18 @@ PrefabInstance:
     - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
       propertyPath: m_Name
       value: Spikeball (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453235, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453237, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4619,6 +4772,18 @@ PrefabInstance:
     - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
       propertyPath: m_Name
       value: Spikeball (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453235, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453237, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4891,6 +5056,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spikeball (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453235, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453237, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4951,6 +5128,18 @@ PrefabInstance:
     - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
       propertyPath: m_Name
       value: Spikeball (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453235, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453237, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5028,6 +5217,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spikeball (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453235, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453237, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5093,6 +5294,18 @@ PrefabInstance:
     - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
       propertyPath: m_Name
       value: Spikeball (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453235, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453237, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5377,6 +5590,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spikeball (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453235, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453237, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5537,6 +5762,18 @@ PrefabInstance:
     - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
       propertyPath: m_Name
       value: Spikeball (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453235, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453237, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5817,8 +6054,12 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1394474345652365915, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
+      propertyPath: camAngle.min
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1394474345652365915, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
       propertyPath: mouseSens.horizontal
-      value: 18
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1499859728740222044, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5907,6 +6148,59 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4887638240284826852, guid: 7462cda06711ea74c910afa1510c78a7, type: 3}
   m_PrefabInstance: {fileID: 861816117}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &768749904
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 768749905}
+  - component: {fileID: 768749906}
+  m_Layer: 0
+  m_Name: InvisibleBoundry
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &768749905
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768749904}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -49.687134, y: 50.98366, z: 5.9371624}
+  m_LocalScale: {x: 1, y: 110.97, z: 153.532}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 91421442}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &768749906
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768749904}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &812560969
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6062,6 +6356,18 @@ PrefabInstance:
     - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
       propertyPath: m_Name
       value: Spikeball (31)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453235, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453237, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6250,6 +6556,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spikeball (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453235, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453237, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6368,6 +6686,59 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7462cda06711ea74c910afa1510c78a7, type: 3}
+--- !u!1 &865918593
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 865918594}
+  - component: {fileID: 865918595}
+  m_Layer: 0
+  m_Name: InvisibleBoundry (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &865918594
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865918593}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0.034901857, y: 50.98366, z: 53.660206}
+  m_LocalScale: {x: 1, y: 110.97, z: 201.98944}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 91421442}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!65 &865918595
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865918593}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &876657806
 GameObject:
   m_ObjectHideFlags: 0
@@ -10237,6 +10608,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spikeball (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453235, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453237, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11395,6 +11778,59 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: d4d6eed92fb93e948b95c2fc4d1f6f8d, type: 3}
+--- !u!1 &1405565003
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1405565004}
+  - component: {fileID: 1405565005}
+  m_Layer: 0
+  m_Name: InvisibleBoundry (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &1405565004
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405565003}
+  m_LocalRotation: {x: -0, y: -0.7040163, z: -0, w: 0.7101838}
+  m_LocalPosition: {x: 11.698116, y: 50.98366, z: -53.62753}
+  m_LocalScale: {x: 1, y: 110.97, z: 199.67923}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 91421442}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: -89.5, z: 0}
+--- !u!65 &1405565005
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405565003}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1411710049
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11550,6 +11986,18 @@ PrefabInstance:
     - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
       propertyPath: m_Name
       value: Spikeball (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453235, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453237, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12003,6 +12451,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spikeball (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453235, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453237, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12068,6 +12528,18 @@ PrefabInstance:
     - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
       propertyPath: m_Name
       value: Spikeball (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453235, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453237, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12772,6 +13244,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spikeball (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453235, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453237, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12838,6 +13322,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spikeball (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453235, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453237, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12903,6 +13399,18 @@ PrefabInstance:
     - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
       propertyPath: m_Name
       value: Spikeball (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453235, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453237, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13185,6 +13693,18 @@ PrefabInstance:
     - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
       propertyPath: m_Name
       value: Spikeball (32)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453235, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453237, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14073,6 +14593,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spikeball (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453235, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453237, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14918,6 +15450,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1242168730982820150, guid: 30418db65c8241242b40dae3b735f200, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1270862327032742934, guid: 30418db65c8241242b40dae3b735f200, type: 3}
       propertyPath: wincond
       value: 25
@@ -15195,6 +15731,18 @@ PrefabInstance:
     - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
       propertyPath: m_Name
       value: Spikeball (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453235, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453237, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15538,6 +16086,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spikeball
       objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453235, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453237, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15787,6 +16347,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spikeball (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453235, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453237, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15847,6 +16419,18 @@ PrefabInstance:
     - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
       propertyPath: m_Name
       value: Spikeball (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453235, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453237, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15913,6 +16497,18 @@ PrefabInstance:
     - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
       propertyPath: m_Name
       value: Spikeball (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453235, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453237, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15990,6 +16586,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spikeball (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453235, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453237, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16055,6 +16663,18 @@ PrefabInstance:
     - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
       propertyPath: m_Name
       value: Spikeball (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453233, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453235, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665285541242453237, guid: 8b83a4da40acf2b469c3c81f4d2d853e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
