@@ -6054,8 +6054,12 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1394474345652365915, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
+      propertyPath: camAngle.max
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1394474345652365915, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
       propertyPath: camAngle.min
-      value: -10
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 1394474345652365915, guid: a19fa1d66aaf82447ac723097f2adc86, type: 3}
       propertyPath: mouseSens.horizontal

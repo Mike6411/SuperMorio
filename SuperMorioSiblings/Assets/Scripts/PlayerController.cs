@@ -159,6 +159,10 @@ public class PlayerController : MonoBehaviour
                 jumpPower += jumpIncrement;
                 jumpChain++;
             }
+            if (jumpChain >= 3)
+            {
+                timerEnded();
+            }
             ApplyJump(jumpPower);
             targetTime = OGtargetTime;
         }
