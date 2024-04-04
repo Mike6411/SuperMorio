@@ -153,14 +153,20 @@ public class PlayerController : MonoBehaviour
         if (!context.started) {return;}
         else if (coyoteTimeCounter > 0f)
         {
+            //Reset so you can't doublejump by spamming jump
+            coyoteTimeCounter = 0f;
+
+            //JumpPower increase depending on where on the jumpchain you are
             if (jumpChain < 3 && targetTime != 0)
             {
                 jumpPower += jumpIncrement;
                 jumpChain++;
             }
+
             ApplyJump(jumpPower);
             targetTime = OGtargetTime;
 
+            //JumpChain reset once you reach 3
             if (jumpChain >= 3)
             {
                 timerEnded();
