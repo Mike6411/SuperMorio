@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     private bool jumped;
     private bool grounded;
     private float groundedCheckDistance;
+    private float coyoteTime = 0.2f;
+    private float coyoteTimeCounter;
 
 
     [SerializeField] private float rotationSpeed = 50f;
@@ -59,22 +61,19 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Update()
-    {        
+    {
         ApplyRotation();
         ApplyGravity();
         ApplyMovement();
 
         //Jumpchain buffer time handling
-        if (targetTime >= -1) 
-        {
-            targetTime -= Time.deltaTime;
-        }
-        
-        if (targetTime < 0)
-        {
-            timerEnded();
-        }
+        Jumpchain();
+
+
+        Coyotetime();
     }
+
+
 
     private void FixedUpdate()
     {
@@ -152,19 +151,20 @@ public class PlayerController : MonoBehaviour
 
         //Jumpchain handling
         if (!context.started) {return;}
-        else if (grounded)
+        else if (coyoteTimeCounter > 0f)
         {
             if (jumpChain < 3 && targetTime != 0)
             {
                 jumpPower += jumpIncrement;
                 jumpChain++;
             }
+            ApplyJump(jumpPower);
+            targetTime = OGtargetTime;
+
             if (jumpChain >= 3)
             {
                 timerEnded();
             }
-            ApplyJump(jumpPower);
-            targetTime = OGtargetTime;
         }
 
     }
@@ -219,6 +219,31 @@ public class PlayerController : MonoBehaviour
             {
                 movement.currentAccel = 0;
             }
+        }
+    }
+    
+    private void Jumpchain()
+    {
+        if (targetTime >= -1)
+        {
+            targetTime -= Time.deltaTime;
+        }
+
+        if (targetTime < 0)
+        {
+            timerEnded();
+        }
+    }
+
+    private void Coyotetime()
+    {
+        if (grounded)
+        {
+            coyoteTimeCounter = coyoteTime;
+        }
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
         }
     }
 
