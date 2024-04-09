@@ -22,9 +22,10 @@ public class PlayerController : MonoBehaviour
     private bool jumped;
     private bool grounded;
     private float groundedCheckDistance;
-    private float coyoteTime = 0.2f;
     private float coyoteTimeCounter;
 
+    //In seconds
+    [SerializeField] private float coyoteTime = 0.2f;
 
     [SerializeField] private float rotationSpeed = 50f;
 
@@ -169,7 +170,8 @@ public class PlayerController : MonoBehaviour
             //JumpChain reset once you reach 3
             if (jumpChain >= 3)
             {
-                timerEnded();
+                //So that the animator can actually get the jumpchain value
+               Invoke ("timerEnded", 0.2f);
             }
         }
 
@@ -230,12 +232,13 @@ public class PlayerController : MonoBehaviour
     
     private void Jumpchain()
     {
+        //Constantly reduce targetTime till it reaches 0
         if (targetTime >= -1)
         {
             targetTime -= Time.deltaTime;
         }
 
-        if (targetTime < 0)
+        if (targetTime <= 0)
         {
             timerEnded();
         }
@@ -243,6 +246,7 @@ public class PlayerController : MonoBehaviour
 
     private void Coyotetime()
     {
+        //Count down from coyote time if not grounded and reset if grounded
         if (grounded)
         {
             coyoteTimeCounter = coyoteTime;
