@@ -166,7 +166,7 @@ public class PlayerController : MonoBehaviour
 
         if (context.canceled) { jumped = false; }
 
-        if (jumpBufferCounter < 0) { return; }
+        if (!context.started) { return; }
         else if (coyoteTimeCounter > 0f)
         {
             //Reset so you can't doublejump by spamming jump
@@ -228,7 +228,7 @@ public class PlayerController : MonoBehaviour
     {
         verticalVelocity = 0f;
         verticalVelocity += var;
-        jumpBufferCounter = 0f;
+
     }
 
     public void Cappy(InputAction.CallbackContext context)
