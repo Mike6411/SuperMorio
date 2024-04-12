@@ -4,28 +4,29 @@ using UnityEngine;
 
 public class CappyScript : MonoBehaviour
 {
-
     [SerializeField]
-    PlayerController PC;
+    PlayerController pc;
 
     //Controls the strength with witch the player will be forced to jump with
     [SerializeField]
     private float bouncePower;
 
-    //Rotation speed
     [SerializeField]
-    private float yRotation;
-
+    private float speed = 2;
 
     private void Start()
     {
-        PC = GameObject.Find("PC").GetComponent<PlayerController>();
+        pc = GameObject.Find("PC").GetComponent<PlayerController>();
+        speed = speed + pc.GetCurrentSpeed();
+        Invoke("Stop", 2f);
     }
 
     private void Update()
     {
-        //Y rotation
-        transform.rotation *= Quaternion.Euler(0f, yRotation, 0f);
+        if (speed != 0) 
+        {
+            transform.position += transform.forward * Time.deltaTime * speed;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -33,7 +34,17 @@ public class CappyScript : MonoBehaviour
         //When player touches you, make them jump
         if (other.tag == "Player")
         {
-            PC.ApplyJump(bouncePower);
+            pc.ApplyJump(bouncePower);
+            pc.Cappydied();
+            Destroy(gameObject);
+        }
+        else
+        {
+            Stop();
         }
     }
+
+    //Stop moving
+    private void Stop(){ speed = 0; }
+
 }

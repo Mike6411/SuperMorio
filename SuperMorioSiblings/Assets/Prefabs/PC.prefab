@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1394474343794118169}
   - component: {fileID: 1394474343794118164}
   - component: {fileID: 1394474343794118170}
+  - component: {fileID: 3054762072472930138}
   - component: {fileID: 1394474343794118171}
   m_Layer: 0
   m_Name: PC
@@ -36,8 +37,9 @@ Transform:
   m_Children:
   - {fileID: 1394474345652365912}
   - {fileID: 1499859728740222044}
+  - {fileID: 8516948161140912561}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1394474343794118175
 MeshRenderer:
@@ -209,6 +211,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 8da0006f-87db-4c67-9707-5a45c4764164
     m_ActionName: Gameplay/Sprint[/Keyboard/shift]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1394474343794118164}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Cappy
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0d0f1ccd-d822-4260-901a-555d2093d6a5
+    m_ActionName: Gameplay/Cappy[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -226,17 +244,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c01410568e9289c4996058377e4719bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coyoteTime: 0.2
+  jumpBufferTime: 0.2
   rotationSpeed: 500
-  gravMod: 1
-  jumpPower: 1.6
+  gravMod: 0.8
+  jumpPower: 1.5
+  crouchjumpPower: 5.5
+  backflipPower: 5.5
+  jumpIncrement: 1
   targetTime: 2
+  cappyGO: {fileID: 4889552905280986197, guid: ab986ca14440bea4f8b3b81910ec5bf8, type: 3}
   movement:
     speed: 5
-    multiplier: 2
-    acceleration: 10
+    sprintMultiplier: 1.6
+    crouchMultiplier: 0.5
+    accel: 2
+    decel: -20
+    speedcap: 20
+    isMoving: 0
     isSprinting: 0
+    isCrouching: 0
     currentSpeed: 0
-  groundedbuffer: 0.2
+    currentAccel: 0
+  groundedbuffer: 0.4
 --- !u!143 &1394474343794118170
 CharacterController:
   m_ObjectHideFlags: 0
@@ -263,6 +293,18 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3054762072472930138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394474343904578685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc89e1283c4f3ee48a1be56069b7d792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &1394474343794118171
 Animator:
   serializedVersion: 5
@@ -391,11 +433,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1394474343794118173}
   mouseSens:
-    horizontal: 20
+    horizontal: 15
     vertical: 20
   camAngle:
-    min: 10
-    max: 50
+    min: -90
+    max: 90
+--- !u!1 &6264834435377945106
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8516948161140912561}
+  m_Layer: 0
+  m_Name: Cappyspawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8516948161140912561
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6264834435377945106}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.775}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1394474343794118173}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1394474345681970103
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -414,7 +487,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0819d30df051edc4f8ba588dca4a238b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.915
+      value: -1.023
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0819d30df051edc4f8ba588dca4a238b, type: 3}
       propertyPath: m_LocalPosition.z

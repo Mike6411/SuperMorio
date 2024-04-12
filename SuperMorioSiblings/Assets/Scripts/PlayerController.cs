@@ -9,14 +9,13 @@ using static UnityEditor.Timeline.TimelinePlaybackControls;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]
     private Vector2 myinput;
-    [SerializeField]
     private Vector3 mydirection;
     private CharacterController characterController;
     private float grav = -9.81f;
     private float verticalVelocity;
     private Camera myCamera;
+    private GameObject spawnpoint;
     private int jumpChain = 0;
     private float OGjumpPower;
     private float OGtargetTime;
@@ -27,7 +26,7 @@ public class PlayerController : MonoBehaviour
     private float jumpBufferCounter;
     private bool crouchjumped;
     private bool backfliped;
-    InputAction.CallbackContext jumpcontext;
+    private bool cappyExists;
 
     //In seconds
     [SerializeField] private float coyoteTime = 0.2f;
@@ -56,21 +55,25 @@ public class PlayerController : MonoBehaviour
     //Time between jumps before jumpchain gets reset
     [SerializeField] private float targetTime;
 
+    [SerializeField] private GameObject cappyGO;
+
     [SerializeField] private Movement movement;
 
     //Bonus length for redundancy purposes
-    [SerializeField] private float groundedbuffer = 0.1f;
+    [SerializeField] private float groundedbuffer;
 
 
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
+        spawnpoint = GameObject.Find("Cappyspawn");
         myCamera = Camera.main;
 
         //Saving important values for crossreferencing 
         OGjumpPower = jumpPower;
         OGtargetTime = targetTime;
         grounded = true;
+        cappyExists = false;
 
         //Saving the ideal length of the grounding raycast
         groundedCheckDistance = (GetComponent<CapsuleCollider>().height / 2) + groundedbuffer;
@@ -85,11 +88,11 @@ public class PlayerController : MonoBehaviour
         //Jumpchain buffer time handling
         Jumpchain();
 
+        //Currently unimplemented
         JumpBuffer();
+
         Coyotetime();
     }
-
-
 
     private void FixedUpdate()
     {
@@ -221,7 +224,6 @@ public class PlayerController : MonoBehaviour
         {
             jumpBufferCounter -= Time.deltaTime;
         }
-        Debug.Log(jumpBufferCounter);
     }
 
     internal void ApplyJump(float var)
@@ -233,8 +235,10 @@ public class PlayerController : MonoBehaviour
 
     public void Cappy(InputAction.CallbackContext context)
     {
-        if (context.started) 
+        if (context.started && !cappyExists) 
         {
+            Instantiate(cappyGO, spawnpoint.transform.position, transform.rotation);
+            cappyExists = true;
             Debug.Log("CappyLaunch");       
         }
     }
@@ -312,6 +316,8 @@ public class PlayerController : MonoBehaviour
             coyoteTimeCounter -= Time.deltaTime;
         }
     }
+
+    internal void Cappydied(){cappyExists = false;}
 
     //Getters for AnimationManager
     internal float GetCurrentSpeed(){return this.movement.currentSpeed;}
