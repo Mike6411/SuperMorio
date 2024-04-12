@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Windows;
+using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
@@ -23,10 +24,18 @@ public class PlayerController : MonoBehaviour
     private bool grounded;
     private float groundedCheckDistance;
     private float coyoteTimeCounter;
+    private float jumpBufferCounter;
+    private bool crouchjumped;
+    private bool backfliped;
+    InputAction.CallbackContext jumpcontext;
 
     //In seconds
     [SerializeField] private float coyoteTime = 0.2f;
 
+    //In seconds
+    [SerializeField]private float jumpBufferTime = 0.2f;
+
+    //Sensitivity
     [SerializeField] private float rotationSpeed = 50f;
 
     //multiplier applied to gravity
@@ -34,6 +43,12 @@ public class PlayerController : MonoBehaviour
 
     //Initial jump strength
     [SerializeField] private float jumpPower;
+
+    //Initial jump strength
+    [SerializeField] private float crouchjumpPower;
+
+    //Initial jump strength
+    [SerializeField] private float backflipPower;
 
     //Consecutive jump increase
     [SerializeField] private float jumpIncrement;
@@ -70,7 +85,7 @@ public class PlayerController : MonoBehaviour
         //Jumpchain buffer time handling
         Jumpchain();
 
-
+        JumpBuffer();
         Coyotetime();
     }
 
@@ -145,42 +160,83 @@ public class PlayerController : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
+
         //Set bool
-        if (context.started){jumped = true;}
+        if (context.started) { jumped = true; }
 
-        if (context.canceled){jumped = false;}
+        if (context.canceled) { jumped = false; }
 
-        //Jumpchain handling
-        if (!context.started) {return;}
+        if (jumpBufferCounter < 0) { return; }
         else if (coyoteTimeCounter > 0f)
         {
             //Reset so you can't doublejump by spamming jump
             coyoteTimeCounter = 0f;
 
-            //JumpPower increase depending on where on the jumpchain you are
-            if (jumpChain < 3 && targetTime != 0)
+
+            //Crouch jump and backflip
+            if (movement.isCrouching)
             {
-                jumpPower += jumpIncrement;
-                jumpChain++;
+                //Check if it's moving backwards or forwards
+                if (myinput.y > 0)
+                {
+                    ApplyJump(crouchjumpPower);
+                }
+
+                if (myinput.y < 0)
+                {
+                    ApplyJump(backflipPower);
+                }
+            }
+            //Normal jump
+            else
+            {
+                //JumpPower increase depending on where on the jumpchain you are
+                if (jumpChain < 3 && targetTime != 0)
+                {
+                    jumpPower += jumpIncrement;
+                    jumpChain++;
+                }
+
+                ApplyJump(jumpPower);
+                targetTime = OGtargetTime;
+
+                //JumpChain reset once you reach 3
+                if (jumpChain >= 3)
+                {
+                    //So that the animator can actually get the jumpchain value
+                    Invoke("timerEnded", 0.2f);
+                }
             }
 
-            ApplyJump(jumpPower);
-            targetTime = OGtargetTime;
-
-            //JumpChain reset once you reach 3
-            if (jumpChain >= 3)
-            {
-                //So that the animator can actually get the jumpchain value
-               Invoke ("timerEnded", 0.2f);
-            }
         }
+    }
 
+    private void JumpBuffer()
+    {
+        if (jumped) 
+        {
+            jumpBufferCounter = jumpBufferTime;
+        } 
+        else 
+        {
+            jumpBufferCounter -= Time.deltaTime;
+        }
+        Debug.Log(jumpBufferCounter);
     }
 
     internal void ApplyJump(float var)
     {
         verticalVelocity = 0f;
         verticalVelocity += var;
+        jumpBufferCounter = 0f;
+    }
+
+    public void Cappy(InputAction.CallbackContext context)
+    {
+        if (context.started) 
+        {
+            Debug.Log("CappyLaunch");       
+        }
     }
 
     public void Sprint(InputAction.CallbackContext context)
@@ -263,6 +319,10 @@ public class PlayerController : MonoBehaviour
     internal bool GetJump(){return this.jumped;}
 
     internal bool GetCrouch(){return this.movement.isCrouching;}
+
+    internal bool GetCrouchjumped() { return this.movement.isCrouching; }
+
+    internal bool GetBackfliped() { return this.movement.isCrouching; }
 
     internal bool GetGrounded(){return this.grounded;}
 
