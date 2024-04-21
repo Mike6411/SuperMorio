@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Windows;
-using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
@@ -238,8 +237,7 @@ public class PlayerController : MonoBehaviour
         if (context.started && !cappyExists) 
         {
             Instantiate(cappyGO, spawnpoint.transform.position, transform.rotation);
-            cappyExists = true;
-            Debug.Log("CappyLaunch");       
+            cappyExists = true;     
         }
     }
 

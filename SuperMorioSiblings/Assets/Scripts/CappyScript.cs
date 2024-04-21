@@ -19,6 +19,7 @@ public class CappyScript : MonoBehaviour
         pc = GameObject.Find("PC").GetComponent<PlayerController>();
         speed = speed + pc.GetCurrentSpeed();
         Invoke("Stop", 2f);
+        Invoke("Die", 5f);
     }
 
     private void Update()
@@ -35,13 +36,18 @@ public class CappyScript : MonoBehaviour
         if (other.tag == "Player")
         {
             pc.ApplyJump(bouncePower);
-            pc.Cappydied();
-            Destroy(gameObject);
+            Die();
         }
         else
         {
             Stop();
         }
+    }
+
+    private void Die()
+    {
+        pc.Cappydied();
+        Destroy(gameObject);
     }
 
     //Stop moving
