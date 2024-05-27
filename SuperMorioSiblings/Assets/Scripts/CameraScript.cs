@@ -39,9 +39,11 @@ public class CameraScript : MonoBehaviour
 
     private void LateUpdate()
     {
+        //Rotate camera according to input + the distance to the player
         transform.eulerAngles = new Vector3(camRot.pitch, camRot.yaw, 0);
         finalPosition = target.position - transform.forward * distanceToPlayer;
 
+        //Avoidance of objects between camera and pc
         if(Physics.Linecast(target.transform.position,finalPosition,out hit)){
             finalPosition= hit.point;
         }

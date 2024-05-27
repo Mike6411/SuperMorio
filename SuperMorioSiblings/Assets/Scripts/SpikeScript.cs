@@ -16,6 +16,7 @@ public class SpikeScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //when in contact with the player "kill" them
         if (other.tag == "Player")
         {
             LM.restartLevel();

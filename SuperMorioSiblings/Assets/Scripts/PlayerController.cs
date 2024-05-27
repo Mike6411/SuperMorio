@@ -317,7 +317,7 @@ public class PlayerController : MonoBehaviour
 
     internal void Cappydied(){cappyExists = false;}
 
-    //Getters for AnimationManager
+    //Getters for the AnimationManager
     internal float GetCurrentSpeed(){return this.movement.currentSpeed;}
 
     internal bool GetJump(){return this.jumped;}

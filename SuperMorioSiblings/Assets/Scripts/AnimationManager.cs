@@ -14,6 +14,7 @@ public class AnimationManager : MonoBehaviour
 
     private void Update() 
     { 
+        //sends to the animator all the data gathered from the pc constantly (ideally bools would get set separately solely when they change status)
         animator.SetFloat("velocity", pc.GetCurrentSpeed());
         animator.SetFloat("vertvelocity", pc.GetCurrentYSpeed());
         animator.SetBool("jumped", pc.GetJump());

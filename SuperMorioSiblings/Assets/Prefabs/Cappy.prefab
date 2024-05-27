@@ -175,3 +175,5 @@ MonoBehaviour:
   pc: {fileID: 0}
   bouncePower: 5
   speed: 2
+  stopseconds: 2
+  dieseconds: 5

@@ -14,12 +14,19 @@ public class CappyScript : MonoBehaviour
     [SerializeField]
     private float speed = 2;
 
+    [SerializeField]
+    private float stopseconds;
+
+    [SerializeField]
+    private float dieseconds;
+
     private void Start()
     {
+        //Stop moving after stopseconds, despawn after dieseconds (settable through inspector)
         pc = GameObject.Find("PC").GetComponent<PlayerController>();
         speed = speed + pc.GetCurrentSpeed();
-        Invoke("Stop", 2f);
-        Invoke("Die", 5f);
+        Invoke("Stop", stopseconds);
+        Invoke("Die", dieseconds);
     }
 
     private void Update()

@@ -32,7 +32,7 @@ public class Points : MonoBehaviour
 
     void Update()
     {
-        //Updown
+        //Updown movement
         newY = Mathf.Sin(Time.time * speed) * height + pos.y;
         transform.position = new Vector3(pos.x, newY, pos.z);
 
